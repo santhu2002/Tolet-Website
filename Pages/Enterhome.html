@@ -4,7 +4,7 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-  " action="/houses/enterhome" method="post">
+  " action="/houses/enterhome" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div style="height:680px" class="login">
         <h3>Rental Type</h3>
@@ -17,10 +17,10 @@
         <input type="text" name="price" placeholder="Price" />
         <h3>Select An Image</h3>
         <input type="file" name="img"/>
-        <!-- <div class="otp">
+        <div class="otp">
           <input type="checkbox" name="offer">
           <p style="display: block;margin-left: 4px;">Offer</p>
-      </div> -->
+      </div>
         <input class="btn1" type="submit" value="Submit" />
     </div>
 </form>
