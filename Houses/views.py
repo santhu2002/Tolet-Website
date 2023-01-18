@@ -10,7 +10,7 @@ def enterhome(request):
         desc = request.POST['desc']
         location = request.POST['location']
         price = request.POST['price']
-        offer =request.POST.get['offer']
+        offer =request.POST.get('offer',False)
         img = request.FILES['img']
         en=Enterhome(name=name,desc=desc,location=location,price=price,offer=offer,img=img)
         en.save()
