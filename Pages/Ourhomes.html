@@ -1,0 +1,21 @@
+{% extends "Base.html" %}
+
+
+{% block content %}
+<div class="cards">
+{% for home in homes %}
+  <div class="card">
+    <img  src="{{home.img.url}}" alt="Card image" class="card-image">
+    <div class="card-content">
+      <h3 class="card-title"> {{home.name}}</h3>
+      <p style="text-align:center" class="card-text">{{home.desc}}</p>
+      <p>Price:{{home.price}}</p>
+      <div class="btn">
+      <a href="{{home.location}}" target="_blank" >Get Location</a>
+    </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

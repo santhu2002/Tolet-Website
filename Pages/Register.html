@@ -1,0 +1,23 @@
+{% extends "Base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="sec2">
+    <img style="width: 45%;" src="{% static 'images/login.png' %}" alt="img">
+    <form action="/accounts/register" method="post">
+        {% csrf_token %}
+        <div class="login" style="height: 450px;">
+            <h3> Email ID</h3>
+            <input type="email" name="email" placeholder="Email ID">
+            <h3>Username</h3>
+            <input type="text" name="name" placeholder=" Username">
+            <!-- <h3>Phone</h3>
+            <input type="text" name="phone" placeholder="Phone Number"> -->
+            <h3>Password</h3>
+            <input type="password" name="password" placeholder="Password">
+            <input class="btn1" type="submit" value="Register">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

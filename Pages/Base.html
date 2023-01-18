@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Ourhomes.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <title>TOLET Website | Get Your Home Ready</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+    }
+</style>
+
+<body >
+    <div class="nav">
+        <div class="image">
+            <a href="/">
+                <h1>GET YOUR HOME</h1>
+            </a>
+        </div>
+        <div class="sec1">
+            <li><a href="/">Home</a></li>
+            <li><a href="/houses/ourhomes">Our Homes</a></li>
+            <li><a href="/houses/enterhome">Post Your Home</a></li>
+            <li><a href="/">About Us</a></li>
+        </div>
+        <div class="btn">
+            {% if user.is_authenticated%}
+            <a href="/accounts/logout">Logout</a>
+            <h2 style="margin:0 5px ;font-family: 'Roboto Slab', serif;">Hello {{user.username}}</h2>
+            {%else %}
+            <a href="/accounts/login">Login</a>
+            <a href="/accounts/register">Register</a>
+            {% endif %}
+        </div>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+
+</html>

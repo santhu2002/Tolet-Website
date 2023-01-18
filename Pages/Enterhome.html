@@ -1,0 +1,28 @@
+{% extends "Base.html" %} {% block content %}
+<form style="
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  " action="/houses/enterhome" method="post">
+    {% csrf_token %}
+    <div style="height:680px" class="login">
+        <h3>Rental Type</h3>
+        <input type="text" name="name" placeholder="GuestHouse/Shop/House" />
+        <h3>Description</h3>
+        <textarea placeholder="Description" name="desc" rows="4" cols="50"></textarea>
+        <h3>Location</h3>
+        <input type="text" name="location" placeholder="Location" />
+        <h3>Price</h3>
+        <input type="text" name="price" placeholder="Price" />
+        <h3>Select An Image</h3>
+        <input type="file" name="img"/>
+        <!-- <div class="otp">
+          <input type="checkbox" name="offer">
+          <p style="display: block;margin-left: 4px;">Offer</p>
+      </div> -->
+        <input class="btn1" type="submit" value="Submit" />
+    </div>
+</form>
+
+{% endblock %}
