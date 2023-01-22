@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.contrib import messages
 from django.contrib.auth.models import User ,auth
 from Home.models import Enterhome
 
@@ -21,10 +22,12 @@ def enterhome(request):
         else:
             return render(request,'Enterhome.html')
     else:
+        messages.info(request,"Please Login/Register To Add a Home")
         return redirect('/accounts/login')
 def ourhomes(request):
     if request.user.is_authenticated:
         homes=Enterhome.objects.all()
         return render(request,'Ourhomes.html',{'homes':homes})
     else:
+        messages.info(request,"Please Login/Register To See Our Homes")
         return redirect('/accounts/login')
