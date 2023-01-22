@@ -3,16 +3,17 @@
 
 {% block content %}
 <div class="cards">
-{% for home in homes %}
+  {% for home in homes %}
   <div class="card">
-    <img  src="{{home.img.url}}" alt="Card image" class="card-image">
+    <img src="{{home.img.url}}" alt="Card image" class="card-image">
     <div class="card-content">
       <h3 class="card-title"> {{home.name}}</h3>
       <p style="text-align:center" class="card-text">{{home.desc}}</p>
       <p>Price:{{home.price}}</p>
       <div class="btn">
-      <a href="{{home.location}}" target="_blank" >Get Location</a>
-    </div>
+        <a href="https://www.google.com/" target="_blank">Get Location</a>
+      </div>
+      <iframe src="https://www.google.com/maps?q={{home.latitude}},{{home.longitude}}&h1=es;z=14&output=embed" frameborder="0"></iframe>
     </div>
   </div>
   {% endfor %}

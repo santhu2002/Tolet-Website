@@ -7,5 +7,7 @@ class Enterhome(models.Model):
     desc= models.TextField()
     img= models.ImageField(upload_to='homepics')
     location=models.CharField(max_length=100)
+    longitude=models.CharField(max_length=100,default='78.3882381')
+    latitude=models.CharField(max_length=100,default='17.265262')
     price=models.IntegerField()
     offer=models.BooleanField(default=False)

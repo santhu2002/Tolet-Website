@@ -10,12 +10,16 @@ def enterhome(request):
             name = request.POST['name']
             desc = request.POST['desc']
             location = request.POST['location']
+            longitude = request.POST['longitude']
+            latitude = request.POST['latitude']
             price = request.POST['price']
             offer =request.POST.get('offer',False)
             img = request.FILES['img']
-            en=Enterhome(name=name,desc=desc,location=location,price=price,offer=offer,img=img)
+            en=Enterhome(name=name,desc=desc,location=location,price=price,offer=offer,img=img,longitude=longitude,latitude=latitude)
             en.save()
-        return render(request,'Enterhome.html')
+            return render(request,'Enterhome.html')
+        else:
+            return render(request,'Enterhome.html')
     else:
         return redirect('/accounts/login')
 def ourhomes(request):

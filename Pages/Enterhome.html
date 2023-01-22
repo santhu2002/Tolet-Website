@@ -5,24 +5,33 @@
     justify-content: center;
     align-items: center;
   " action="/houses/enterhome" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div style="height:680px" class="login">
-        <h3>Rental Type</h3>
-        <input type="text" name="name" placeholder="GuestHouse/Shop/House" />
-        <h3>Description</h3>
-        <textarea placeholder="Description" name="desc" rows="4" cols="50"></textarea>
-        <h3>Location</h3>
-        <input type="text" name="location" placeholder="Location" />
-        <h3>Price</h3>
-        <input type="text" name="price" placeholder="Price" />
-        <h3>Select An Image</h3>
-        <input type="file" name="img"/>
-        <div class="otp">
-          <input type="checkbox" name="offer">
-          <p style="display: block;margin-left: 4px;">Offer</p>
+  {% csrf_token %}
+  <div style="height:750px" class="login">
+    <h3>Rental Type</h3>
+    <input type="text" name="name" placeholder="GuestHouse/Shop/House" />
+    <h3>Description</h3>
+    <textarea placeholder="Description" name="desc" rows="4" cols="50"></textarea>
+    <h3>Location</h3>
+    <div style="width: 100%;display: flex;flex-direction: row;align-content: center;justify-content: space-between;
+              align-items: center;">
+      <button type="button" id="location" onclick="loc()" style="width:45%"  class="btn1">Auto Detect</button>
+      <div
+        style="width: 100%;display: flex;flex-direction: row;align-content: center;justify-content: space-between;align-items: center;margin:0 10px">
+        <input style="width:49%" type="text" name="longitude" id="longitude" placeholder="Longitude" />
+        <input style="width:48%" type="text" name="latitude" id="latitude" placeholder="Latitude" />
       </div>
-        <input class="btn1" type="submit" value="Submit" />
     </div>
+    <input type="text" name="location" placeholder="Location" />
+    <h3>Price</h3>
+    <input type="text" name="price" placeholder="Price" />
+    <h3>Select An Image</h3>
+    <input type="file" name="img" />
+    <div class="otp">
+      <input type="checkbox" name="offer">
+      <p style="display: block;margin-left: 4px;">Offer</p>
+    </div>
+    <input class="btn1" type="submit" value="Submit" />
+  </div>
 </form>
 
 {% endblock %}
