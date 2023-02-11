@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User ,auth
 from Home.models import Enterhome
+from geopy.geocoders import ArcGIS
 
 # Create your views here.
 def enterhome(request):
@@ -11,8 +12,18 @@ def enterhome(request):
             name = request.POST['name']
             desc = request.POST['desc']
             location = request.POST['location']
-            longitude = request.POST['longitude']
-            latitude = request.POST['latitude']
+            loc=ArcGIS()
+            # loc = Nominatim(user_agent="GetLoc")
+            getLoc = loc.geocode(location)
+            # longitude = request.POST['longitude']
+            # latitude = request.POST['latitude']
+            print(getLoc)
+            if(request.POST['longitude']):
+                longitude = request.POST['longitude']
+                latitude = request.POST['latitude']
+            else:
+                longitude = getLoc.longitude
+                latitude = getLoc.latitude
             price = request.POST['price']
             offer =request.POST.get('offer',False)
             img = request.FILES['img']
