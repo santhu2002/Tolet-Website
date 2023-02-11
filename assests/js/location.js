@@ -5,7 +5,7 @@ function loc() {
 function success(position) {
   var latitude = position.coords.latitude;
   var longitude = position.coords.longitude;
-  //   console.log(latitude, longitude);
+    console.log(latitude, longitude);
   document.getElementById("longitude").value = longitude;
   document.getElementById("latitude").value = latitude;
 }
